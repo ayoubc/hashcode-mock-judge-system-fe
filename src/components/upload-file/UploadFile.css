@@ -1,0 +1,11 @@
+.input-file-group {
+    padding: 14px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.file-label {
+    font-weight: 600;
+    align-items: center;
+    display: flex;
+}

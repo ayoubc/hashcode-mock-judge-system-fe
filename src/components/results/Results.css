@@ -1,0 +1,11 @@
+.results {
+    /* text-align:left ; */
+    width: 50%;
+    align-self: center;
+    margin: auto;
+}
+
+.card-header {
+    font-weight: 600;
+    font-size: 20px;
+}
