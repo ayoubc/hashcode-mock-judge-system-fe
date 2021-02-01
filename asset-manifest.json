@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/ayoubc/hashcode-mock-judge-system-fe/static/css/main.7a419ea2.chunk.css",
+    "main.js": "/ayoubc/hashcode-mock-judge-system-fe/static/js/main.328515d8.chunk.js",
+    "main.js.map": "/ayoubc/hashcode-mock-judge-system-fe/static/js/main.328515d8.chunk.js.map",
+    "runtime-main.js": "/ayoubc/hashcode-mock-judge-system-fe/static/js/runtime-main.0d42b92d.js",
+    "runtime-main.js.map": "/ayoubc/hashcode-mock-judge-system-fe/static/js/runtime-main.0d42b92d.js.map",
+    "static/css/2.150d169a.chunk.css": "/ayoubc/hashcode-mock-judge-system-fe/static/css/2.150d169a.chunk.css",
+    "static/js/2.b0428421.chunk.js": "/ayoubc/hashcode-mock-judge-system-fe/static/js/2.b0428421.chunk.js",
+    "static/js/2.b0428421.chunk.js.map": "/ayoubc/hashcode-mock-judge-system-fe/static/js/2.b0428421.chunk.js.map",
+    "static/js/3.18845388.chunk.js": "/ayoubc/hashcode-mock-judge-system-fe/static/js/3.18845388.chunk.js",
+    "static/js/3.18845388.chunk.js.map": "/ayoubc/hashcode-mock-judge-system-fe/static/js/3.18845388.chunk.js.map",
+    "index.html": "/ayoubc/hashcode-mock-judge-system-fe/index.html",
+    "static/css/2.150d169a.chunk.css.map": "/ayoubc/hashcode-mock-judge-system-fe/static/css/2.150d169a.chunk.css.map",
+    "static/css/main.7a419ea2.chunk.css.map": "/ayoubc/hashcode-mock-judge-system-fe/static/css/main.7a419ea2.chunk.css.map",
+    "static/js/2.b0428421.chunk.js.LICENSE.txt": "/ayoubc/hashcode-mock-judge-system-fe/static/js/2.b0428421.chunk.js.LICENSE.txt",
+    "static/media/icon-trash.7a6bde0b.svg": "/ayoubc/hashcode-mock-judge-system-fe/static/media/icon-trash.7a6bde0b.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0d42b92d.js",
+    "static/css/2.150d169a.chunk.css",
+    "static/js/2.b0428421.chunk.js",
+    "static/css/main.7a419ea2.chunk.css",
+    "static/js/main.328515d8.chunk.js"
+  ]
+}
