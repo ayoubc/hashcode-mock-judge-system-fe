@@ -4,12 +4,10 @@ import './InputField.css';
 
 
 const FileInfo = ({file, reset}) => {
-
     const getFileSizeInKB = (size) => {
         return (size / 1000).toFixed(2);
     }
 
-    if(!file) return null;
     return (
         <>
             <img src={TrashIcon} className="trash-icon" onClick={reset} alt="Trash Icon"/>
@@ -30,13 +28,18 @@ const InputField = ({ onChangeFile, id }) => {
         setSelectedFile(null);
         onChangeFile(id, null);
     }
+
+    const onClick = (event) => {
+        // this is a little tricky ==> to enable the user select the same file
+        // otherwis, if selects a file then remove it, he will not be able to choose the same file!
+       event.target.value = null;
+    }
+
     return (
         <div className="file-input">
-            <input type="file" id={id} className="file" onChange={onSelectFile} accept=".txt" />
-            {selectedFile ? null : <label htmlFor={id}>Choose file</label>}
-            <FileInfo file={selectedFile} reset={unSelectFile}/>
+            <input type="file" id={id} className="file" onClick={onClick} onChange={onSelectFile} accept=".txt" />
+            {selectedFile ? <FileInfo file={selectedFile} reset={unSelectFile}/> : <label htmlFor={id}>Choose file</label>}
         </div>
-
     );
 }
 

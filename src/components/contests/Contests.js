@@ -17,7 +17,7 @@ const Contests = ({ onNewSubmission }) => {
                 <button className="new-sub" onClick={handleShow}>
                     New Submission
                 </button>
-                <SubmissionForm show={show} handleClose={handleClose} onNewSubmission={onNewSubmission} />
+                {show && <SubmissionForm show={show} handleClose={handleClose} onNewSubmission={onNewSubmission} />}
             </div>
         </div>
 

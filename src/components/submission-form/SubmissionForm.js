@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button, Modal, Spinner } from 'react-bootstrap';
 import UploadFile from '../upload-file/UploadFile';
 import api from '../../api';
@@ -32,6 +32,12 @@ const SubmissionForm = ({ show, handleClose, onNewSubmission }) => {
     const [loading, setLoading] = useState(false);
     const [selectedFiles, setSelectedFiles] = useState(INITIAL_SELECTED_FILES);
 
+    useEffect(() => {
+        return () => {
+            console.log('Unmount')
+        }
+    })
+
     if (!show) return null;
 
     const onChangeFile = (id, file) => {
@@ -62,6 +68,7 @@ const SubmissionForm = ({ show, handleClose, onNewSubmission }) => {
         }
     }
 
+    
     return (
         <Modal
             show={show} onHide={handleClose} size="lg"
