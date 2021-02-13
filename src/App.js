@@ -18,16 +18,15 @@ const INITIAL_RESULT = {
 
 const App = () => {
 	const [results, setResults] = useState(INITIAL_RESULT);
-	const [hasError, setHasError] = useState(false);
+	const [errorMessage, setErrorMessage] = useState('');
 
-	const onNewSubmission = (newSubmissionResults, hasError) => {
-		if (hasError) {
-			setHasError(true);
-			setTimeout(() => setHasError(false), 30000);
+	const onNewSubmission = (newSubmissionResults, errorMessage) => {
+		if (errorMessage) {
+			setErrorMessage(errorMessage);
+			setTimeout(() => setErrorMessage(''), 30000);
 			return;
 		}
-		setHasError(false);
-		console.log(newSubmissionResults);
+		setErrorMessage('');
 		let newResults = [...results["fileResults"]];
 		let { total } = results;
 		total.value = 0;
@@ -50,11 +49,11 @@ const App = () => {
 			<h2> Google HashCode judge system <em>(mocked)</em></h2>
 			<Contests onNewSubmission={onNewSubmission} />
 			<Results results={results} />
-			{hasError
+			{errorMessage
 				&& <Toaster
 					status="500"
-					message="An Error Occured. Please try again." 
-					onClose={() => setHasError(false)} 
+					message={errorMessage} 
+					onClose={() => setErrorMessage('')} 
 				/>
 			}
 		</div>

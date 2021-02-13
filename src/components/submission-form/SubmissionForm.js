@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Button, Modal, Spinner } from 'react-bootstrap';
 import UploadFile from '../upload-file/UploadFile';
 import api from '../../api';
@@ -32,12 +32,6 @@ const SubmissionForm = ({ show, handleClose, onNewSubmission }) => {
     const [loading, setLoading] = useState(false);
     const [selectedFiles, setSelectedFiles] = useState(INITIAL_SELECTED_FILES);
 
-    useEffect(() => {
-        return () => {
-            console.log('Unmount')
-        }
-    })
-
     if (!show) return null;
 
     const onChangeFile = (id, file) => {
@@ -56,19 +50,29 @@ const SubmissionForm = ({ show, handleClose, onNewSubmission }) => {
         try {
             setLoading(true);
             const response = await api.post("/files-upload", formData);
-            onNewSubmission(response.data, false);
-            setSelectedFiles(INITIAL_SELECTED_FILES);
-            setLoading(false);
-            handleClose();
+            const { data } = response;
+            
+            if (data.status === 500) {
+                const errorMessage = "You uploaded wrong files for some inputs.";
+                onNewSubmission(response.data, errorMessage);
+                setLoading(false);
+            }
+            else{
+                onNewSubmission(response.data, '');
+                setSelectedFiles(INITIAL_SELECTED_FILES);
+                setLoading(false);
+                handleClose();
+            }
+            
         }
         catch (error) {
             setLoading(false);
-            onNewSubmission({}, true);
-            console.log(error);
+            onNewSubmission({}, "Network Error. Please try again.");
+            console.error(error);
         }
     }
 
-    
+
     return (
         <Modal
             show={show} onHide={handleClose} size="lg"
@@ -93,7 +97,7 @@ const SubmissionForm = ({ show, handleClose, onNewSubmission }) => {
                 </Button>
                 <Button variant="outline-success" onClick={uploadFile} disabled={noFileChoosed(selectedFiles)}>
                     {!loading && "Submit"}
-                    {loading && <> <Spinner as="span" animation="border" size="sm"role="status"/> Uploading files... </> }
+                    {loading && <> <Spinner as="span" animation="border" size="sm" role="status" /> Uploading files... </>}
                 </Button>
             </Modal.Footer>
         </Modal>

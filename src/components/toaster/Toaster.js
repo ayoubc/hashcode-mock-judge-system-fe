@@ -10,12 +10,11 @@ const images = {
 }
 
 const Toaster = ({ message, status, onClose }) => {
-    console.log(images[status]);
-    // console.log(process.env.PUBLIC_URL)
+    
     return (
         <div className="toaster">
             <div>
-                <img src={FailureImage} alt='' />
+                <img src={images[status]} alt='' />
                 <span> {message} </span>
                 <button onClick={onClose}>
                     <span>x</span>
